@@ -408,7 +408,7 @@ class _MaterialDesktopControlsState extends State<MaterialDesktopControls>
             child: Icon(
               _latestValue.volume > 0 ? Icons.volume_up : Icons.volume_off,
               color: Colors.white,
-              size: 14,
+              size: 10,
             ),
           ),
         ),
