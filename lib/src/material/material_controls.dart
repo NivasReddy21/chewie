@@ -328,7 +328,7 @@ class _MaterialControlsState extends State<MaterialControls>
             child: Icon(
               _latestValue.volume > 0 ? Icons.volume_up : Icons.volume_off,
               color: Colors.white,
-              size: 12,
+              size: 14,
             ),
           ),
         ),
