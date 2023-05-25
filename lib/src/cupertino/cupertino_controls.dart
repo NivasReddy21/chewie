@@ -835,8 +835,8 @@ class _PlaybackSpeedDialog extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (e == _selected)
-                    Icon(Icons.check, size: 20.0, color: selectedColor),
-                  Text(e.toString()),
+                    Icon(Icons.check, size: 20.0, color: Colors.black),
+                  Text(e.toString(), style: TextStyle(color: Colors.black)),
                 ],
               ),
             ),
