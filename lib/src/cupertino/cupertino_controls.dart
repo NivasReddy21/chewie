@@ -822,8 +822,6 @@ class _PlaybackSpeedDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final selectedColor = CupertinoTheme.of(context).primaryColor;
-
     return CupertinoActionSheet(
       actions: _speeds
           .map(
@@ -835,8 +833,9 @@ class _PlaybackSpeedDialog extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (e == _selected)
-                    Icon(Icons.check, size: 20.0, color: Colors.black),
-                  Text(e.toString(), style: TextStyle(color: Colors.black)),
+                    const Icon(Icons.check, size: 20.0, color: Colors.black),
+                  Text(e.toString(),
+                      style: const TextStyle(color: Colors.black)),
                 ],
               ),
             ),

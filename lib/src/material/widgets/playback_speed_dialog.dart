@@ -14,8 +14,6 @@ class PlaybackSpeedDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color selectedColor = Theme.of(context).primaryColor;
-
     return ListView.builder(
       shrinkWrap: true,
       physics: const ScrollPhysics(),
@@ -26,15 +24,18 @@ class PlaybackSpeedDialog extends StatelessWidget {
           title: Row(
             children: [
               if (speed == _selected)
-                Icon(
+                const Icon(
                   Icons.check,
                   size: 20.0,
-                  color: selectedColor,
+                  color: Colors.black,
                 )
               else
                 Container(width: 20.0),
               const SizedBox(width: 16.0),
-              Text(speed.toString()),
+              Text(
+                speed.toString(),
+                style: const TextStyle(color: Colors.black),
+              ),
             ],
           ),
           selected: speed == _selected,
