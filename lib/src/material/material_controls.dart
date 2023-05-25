@@ -142,18 +142,16 @@ class _MaterialControlsState extends State<MaterialControls>
 
   Widget _buildActionBar() {
     return Positioned(
-      top: 0,
+      top: 10,
       right: 0,
-      child: SafeArea(
-        child: AnimatedOpacity(
-          opacity: notifier.hideStuff ? 0.0 : 1.0,
-          duration: const Duration(milliseconds: 250),
-          child: Row(
-            children: [
-              _buildSubtitleToggle(),
-              if (chewieController.showOptions) _buildOptionsButton(),
-            ],
-          ),
+      child: AnimatedOpacity(
+        opacity: notifier.hideStuff ? 0.0 : 1.0,
+        duration: const Duration(milliseconds: 250),
+        child: Row(
+          children: [
+            _buildSubtitleToggle(),
+            if (chewieController.showOptions) _buildOptionsButton(),
+          ],
         ),
       ),
     );

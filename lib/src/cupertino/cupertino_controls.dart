@@ -274,9 +274,11 @@ class _CupertinoControlsState extends State<CupertinoControls>
                       )
                     : Row(
                         children: <Widget>[
-                          // _buildSkipBack(iconColor, barHeight),
+                          if (chewieController.show15secSkip)
+                            _buildSkipBack(iconColor, barHeight),
                           _buildPlayPause(controller, iconColor, barHeight),
-                          // _buildSkipForward(iconColor, barHeight),
+                          if (chewieController.show15secSkip)
+                            _buildSkipForward(iconColor, barHeight),
                           _buildPosition(iconColor),
                           _buildProgressBar(),
                           _buildRemaining(iconColor),
@@ -496,47 +498,47 @@ class _CupertinoControlsState extends State<CupertinoControls>
     });
   }
 
-  // GestureDetector _buildSkipBack(Color iconColor, double barHeight) {
-  //   return GestureDetector(
-  //     onTap: _skipBack,
-  //     child: Container(
-  //       height: barHeight,
-  //       color: Colors.transparent,
-  //       margin: const EdgeInsets.only(left: 10.0),
-  //       padding: const EdgeInsets.only(
-  //         left: 6.0,
-  //         right: 6.0,
-  //       ),
-  //       child: Icon(
-  //         CupertinoIcons.gobackward_15,
-  //         color: iconColor,
-  //         size: 18.0,
-  //       ),
-  //     ),
-  //   );
-  // }
+  GestureDetector _buildSkipBack(Color iconColor, double barHeight) {
+    return GestureDetector(
+      onTap: _skipBack,
+      child: Container(
+        height: barHeight,
+        color: Colors.transparent,
+        margin: const EdgeInsets.only(left: 10.0),
+        padding: const EdgeInsets.only(
+          left: 6.0,
+          right: 6.0,
+        ),
+        child: Icon(
+          CupertinoIcons.gobackward_15,
+          color: iconColor,
+          size: 18.0,
+        ),
+      ),
+    );
+  }
 
-  // GestureDetector _buildSkipForward(Color iconColor, double barHeight) {
-  //   return GestureDetector(
-  //     onTap: _skipForward,
-  //     child: Container(
-  //       height: barHeight,
-  //       color: Colors.transparent,
-  //       padding: const EdgeInsets.only(
-  //         left: 6.0,
-  //         right: 8.0,
-  //       ),
-  //       margin: const EdgeInsets.only(
-  //         right: 8.0,
-  //       ),
-  //       child: Icon(
-  //         CupertinoIcons.goforward_15,
-  //         color: iconColor,
-  //         size: 18.0,
-  //       ),
-  //     ),
-  //   );
-  // }
+  GestureDetector _buildSkipForward(Color iconColor, double barHeight) {
+    return GestureDetector(
+      onTap: _skipForward,
+      child: Container(
+        height: barHeight,
+        color: Colors.transparent,
+        padding: const EdgeInsets.only(
+          left: 6.0,
+          right: 8.0,
+        ),
+        margin: const EdgeInsets.only(
+          right: 8.0,
+        ),
+        child: Icon(
+          CupertinoIcons.goforward_15,
+          color: iconColor,
+          size: 18.0,
+        ),
+      ),
+    );
+  }
 
   GestureDetector _buildSpeedButton(
     VideoPlayerController controller,
@@ -748,21 +750,21 @@ class _CupertinoControlsState extends State<CupertinoControls>
     });
   }
 
-  // void _skipBack() {
-  //   _cancelAndRestartTimer();
-  //   final beginning = Duration.zero.inMilliseconds;
-  //   final skip =
-  //       (_latestValue.position - const Duration(seconds: 15)).inMilliseconds;
-  //   controller.seekTo(Duration(milliseconds: math.max(skip, beginning)));
-  // }
+  void _skipBack() {
+    _cancelAndRestartTimer();
+    final beginning = Duration.zero.inMilliseconds;
+    final skip =
+        (_latestValue.position - const Duration(seconds: 15)).inMilliseconds;
+    controller.seekTo(Duration(milliseconds: math.max(skip, beginning)));
+  }
 
-  // void _skipForward() {
-  //   _cancelAndRestartTimer();
-  //   final end = _latestValue.duration.inMilliseconds;
-  //   final skip =
-  //       (_latestValue.position + const Duration(seconds: 15)).inMilliseconds;
-  //   controller.seekTo(Duration(milliseconds: math.min(skip, end)));
-  // }
+  void _skipForward() {
+    _cancelAndRestartTimer();
+    final end = _latestValue.duration.inMilliseconds;
+    final skip =
+        (_latestValue.position + const Duration(seconds: 15)).inMilliseconds;
+    controller.seekTo(Duration(milliseconds: math.min(skip, end)));
+  }
 
   void _startHideTimer() {
     final hideControlsTimer = chewieController.hideControlsTimer.isNegative
