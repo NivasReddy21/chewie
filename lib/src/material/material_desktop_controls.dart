@@ -248,7 +248,7 @@ class _MaterialDesktopControlsState extends State<MaterialDesktopControls>
       opacity: notifier.hideStuff ? 0.0 : 1.0,
       duration: const Duration(milliseconds: 300),
       child: Container(
-        height: barHeight + (chewieController.isFullScreen ? 20.0 : 20),
+        height: barHeight + (chewieController.isFullScreen ? 20.0 : 0),
         padding:
             EdgeInsets.only(bottom: chewieController.isFullScreen ? 10.0 : 15),
         child: SafeArea(
@@ -408,6 +408,7 @@ class _MaterialDesktopControlsState extends State<MaterialDesktopControls>
             child: Icon(
               _latestValue.volume > 0 ? Icons.volume_up : Icons.volume_off,
               color: Colors.white,
+              size: 14,
             ),
           ),
         ),
